@@ -6,13 +6,21 @@ import { AppComponent } from './app.component';
 import { AccountSelectionComponent } from './components/account-selection/account-selection.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { NavComponent } from './components/nav/nav.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { WalletComponent } from './components/wallet/wallet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountSelectionComponent,
     AccountDetailsComponent,
-    TransactionComponent
+    TransactionComponent,
+    NavComponent,
+    HomeComponent,
+    NotFoundComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,

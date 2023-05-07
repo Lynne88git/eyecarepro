@@ -1,0 +1,7 @@
+{
+  "extends": ["standard"],
+  "plugins": ["import"],
+  "rules": {
+    "no-new": "off"
+  }
+}

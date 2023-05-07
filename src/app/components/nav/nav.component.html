@@ -1,0 +1,58 @@
+<nav
+  class="navbar bg-transparent container mx-auto flex justify-start items-center py-8 px-4"
+>
+  <div class="flex items-center">
+    <img
+      class="w-8 h-8 rounded-full mr-2"
+      src="https://via.placeholder.com/50x50"
+      alt="User profile image"
+    />
+    <p class="text-white font-medium text-sm">
+      {{ greeting }} {{ selectedUser }}
+    </p>
+  </div>
+  <div class="flex items-center ml-auto">
+    <div class="relative">
+      <button
+        class="flex items-center justify-center w-10 h-10 rounded-lg bg-deep-gray focus:outline-none p-3"
+        (click)="toggleVisible($event)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <circle cx="4" cy="4" r="4" fill="#CBD5E0" />
+          <circle cx="12" cy="4" r="4" fill="#CBD5E0" />
+          <circle cx="4" cy="12" r="4" fill="#CBD5E0" />
+          <circle cx="12" cy="12" r="4" fill="#CBD5E0" />
+        </svg>
+      </button>
+      <ul
+        class="absolute right-0 w-48 py-2 mt-2 rounded-lg bg-deep-gray shadow-lg z-10"
+        [ngClass]="{ invisible: !isVisible }"
+      >
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 text-gray-200 hover:bg-gray-100"
+            (click)="toggleVisible($event)"
+            >User 1</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 text-gray-200 hover:bg-gray-100"
+            (click)="toggleVisible($event)"
+            >User 2</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 text-gray-200 hover:bg-gray-100"
+            (click)="toggleVisible($event)"
+            >User 3</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
