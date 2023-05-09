@@ -8,7 +8,7 @@
       alt="User profile image"
     />
     <p class="text-white font-medium text-sm">
-      {{ greeting }} {{ selectedUser }}
+      {{ greeting }} {{ selectedUser?.name }}
     </p>
   </div>
   <div class="flex items-center ml-auto">
@@ -28,28 +28,12 @@
         class="absolute right-0 w-48 py-2 mt-2 rounded-lg bg-deep-gray shadow-lg z-10"
         [ngClass]="{ invisible: !isVisible }"
       >
-        <li>
+        <li *ngFor="let user of users">
           <a
             href="#"
             class="block px-4 py-2 text-gray-200 hover:bg-gray-100"
-            (click)="toggleVisible($event)"
-            >User 1</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block px-4 py-2 text-gray-200 hover:bg-gray-100"
-            (click)="toggleVisible($event)"
-            >User 2</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block px-4 py-2 text-gray-200 hover:bg-gray-100"
-            (click)="toggleVisible($event)"
-            >User 3</a
+            (click)="selectUser(user); toggleVisible($event)"
+            >{{ user.name }}</a
           >
         </li>
       </ul>

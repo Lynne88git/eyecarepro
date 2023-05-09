@@ -16,7 +16,7 @@ export interface IAccount {
     type: string;
     date: Date;
     amount: number;
-    fromAccount: number;
-    toAccount: number;
+    fromAccount?: number;
+    toAccount?: number;
   }
   

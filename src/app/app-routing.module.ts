@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from '../app/components/home/home.component';
+import { DashboardComponent } from '../app/components/dashboard/dashboard.component';
 import { NotFoundComponent } from '../app/components/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '', component: DashboardComponent, pathMatch: 'full' },
   { path: '**', component: NotFoundComponent, }
 ];
 

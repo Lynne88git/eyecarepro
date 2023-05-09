@@ -1,4 +1,4 @@
-import { IUser } from './models';
+import { IUser, IAccount, ITransaction } from "src/app/models/models";
 
 export const USERS: IUser[] = [
   {
@@ -15,7 +15,7 @@ export const USERS: IUser[] = [
             type: 'deposit',
             date: new Date(2022, 3, 1),
             amount: 500,
-            fromAccount: null,
+            fromAccount: undefined,
             toAccount: 1
           },
           {
@@ -24,7 +24,7 @@ export const USERS: IUser[] = [
             date: new Date(2022, 4, 15),
             amount: 200,
             fromAccount: 1,
-            toAccount: null
+            toAccount: undefined
           },
           {
             id: 3,
@@ -58,7 +58,7 @@ export const USERS: IUser[] = [
             type: 'deposit',
             date: new Date(2022, 3, 1),
             amount: 1000,
-            fromAccount: null,
+            fromAccount: undefined,
             toAccount: 1
           },
           {
@@ -93,7 +93,7 @@ export const USERS: IUser[] = [
             type: 'deposit',
             date: new Date(2022, 3, 1),
             amount: 1500,
-            fromAccount: null,
+            fromAccount: undefined,
             toAccount: 1
           },
           {
@@ -102,7 +102,7 @@ export const USERS: IUser[] = [
             date: new Date(2022, 4, 15),
             amount: 500,
             fromAccount: 1,
-            toAccount: null
+            toAccount: undefined
           }
         ]
       },

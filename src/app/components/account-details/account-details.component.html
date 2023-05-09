@@ -1,1 +1,8 @@
-<p>account-details works!</p>
+<div class="account-details" *ngIf="selectedAccount">
+  <h2>{{ selectedAccount.user }} - {{ selectedAccount.id }}</h2>
+  <p>Current Balance: {{ selectedAccount.balance | currency }}</p>
+
+  <app-transaction-list
+    [transactions]="selectedAccount.transactions"
+  ></app-transaction-list>
+</div>

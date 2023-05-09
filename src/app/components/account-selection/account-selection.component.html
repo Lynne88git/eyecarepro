@@ -1,1 +1,9 @@
-<p>account-selection works!</p>
+<div>
+  <h2>Select Account</h2>
+  <div *ngFor="let account of accounts">
+    <button (click)="selectedAccount = account">
+      {{ account.user }}'s Account {{ account.id }}
+    </button>
+    <p>Balance: {{ account.balance }}</p>
+  </div>
+</div>

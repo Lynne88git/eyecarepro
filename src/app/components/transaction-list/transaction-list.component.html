@@ -1,0 +1,9 @@
+<div class="transaction-list">
+  <h3>Transactions</h3>
+  <ul>
+    <li *ngFor="let transaction of transactions">
+      {{ transaction.date | date }} - {{ transaction.type }} -
+      {{ transaction.amount | currency }}
+    </li>
+  </ul>
+</div>
