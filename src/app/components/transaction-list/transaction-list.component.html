@@ -1,9 +1,21 @@
 <div class="transaction-list">
-  <h3>Transactions</h3>
+  <h3 class="text-white text-left font-bold text-lg my-2">Transactions</h3>
   <ul>
-    <li *ngFor="let transaction of transactions">
-      {{ transaction.date | date }} - {{ transaction.type }} -
-      {{ transaction.amount | currency }}
+    <li
+      class="bg-white rounded-lg text-deep-gray my-4 w-full"
+      *ngFor="let transaction of transactions"
+    >
+      <div class="flex items-center justify-between p-4">
+        <div
+          class="flex flex-col items-start justify-center flex-grow space-y-2"
+        >
+          <p class="capitalize">{{ transaction.type }}</p>
+          <p>{{ transaction.date | date : "dd MMM yyyy" }}</p>
+        </div>
+        <div class="flex-shrink-0">
+          <p class="text-right">$ {{ transaction.amount }}</p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>

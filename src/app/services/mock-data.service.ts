@@ -8,85 +8,106 @@ import { IUser, IAccount, ITransaction } from '../models/models';
 export class MockDataService implements InMemoryDbService {
 
   createDb() {
-    const users: IUser[] = [
+    const USERS: IUser[] = [
       {
         id: 1,
-        name: 'John Doe',
+        name: 'John',
         accounts: [
           {
             id: 1,
-            user: 'John Doe',
-            balance: 5000,
+            user: 'John',
+            balance: 1000,
             transactions: [
               {
                 id: 1,
                 type: 'deposit',
-                date: new Date('2022-05-05'),
-                amount: 2000,
-                toAccount: 1,
+                date: new Date(2022, 3, 1),
+                amount: 500,
+                fromAccount: undefined,
+                toAccount: 1
               },
               {
                 id: 2,
-                type: 'withdrawal',
-                date: new Date('2022-05-06'),
-                amount: 1000,
+                type: 'withdraw',
+                date: new Date(2022, 4, 15),
+                amount: 200,
                 fromAccount: 1,
+                toAccount: undefined
               },
-            ],
-          },
-        ],
+              {
+                id: 3,
+                type: 'transfer',
+                date: new Date(2022, 5, 30),
+                amount: 300,
+                fromAccount: 1,
+                toAccount: 2
+              }
+            ]
+          }
+        ]
       },
       {
         id: 2,
-        name: 'Jane Smith',
+        name: 'Mary',
         accounts: [
           {
-            id: 2,
-            user: 'Jane Smith',
-            balance: 10000,
+            id: 1,
+            user: 'Mary',
+            balance: 2000,
             transactions: [
               {
-                id: 3,
+                id: 1,
                 type: 'deposit',
-                date: new Date('2022-05-04'),
-                amount: 5000,
-                toAccount: 2,
+                date: new Date(2022, 3, 1),
+                amount: 1000,
+                fromAccount: undefined,
+                toAccount: 1
               },
-            ],
-          },
-        ],
+              {
+                id: 2,
+                type: 'transfer',
+                date: new Date(2022, 4, 15),
+                amount: 500,
+                fromAccount: 1,
+                toAccount: 2
+              }
+            ]
+          }
+        ]
       },
       {
         id: 3,
-        name: 'Bob Johnson',
+        name: 'Bob',
         accounts: [
           {
-            id: 3,
-            user: 'Bob Johnson',
-            balance: 7500,
+            id: 1,
+            user: 'Bob',
+            balance: 3000,
             transactions: [
               {
-                id: 4,
+                id: 1,
                 type: 'deposit',
-                date: new Date('2022-05-03'),
-                amount: 2500,
-                toAccount: 3,
+                date: new Date(2022, 3, 1),
+                amount: 1500,
+                fromAccount: undefined,
+                toAccount: 1
               },
               {
-                id: 5,
-                type: 'transfer',
-                date: new Date('2022-05-07'),
+                id: 2,
+                type: 'withdraw',
+                date: new Date(2022, 4, 15),
                 amount: 500,
-                fromAccount: 3,
-                toAccount: 1,
-              },
-            ],
-          },
-        ],
-      },
+                fromAccount: 1,
+                toAccount: undefined
+              }
+            ]
+          }
+        ]
+      }
     ];
+    
 
-    return { users };
+    return { USERS };
   }
 
   genId<T extends IUser | IAccount | ITransaction>(collection: T[], collectionName: string): number {

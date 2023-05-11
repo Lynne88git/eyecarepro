@@ -5,7 +5,7 @@ import { IUser, IAccount } from 'src/app/models/models';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   selectedUser: IUser | null = null;
@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.selectedUserChanged.subscribe(user => {
+    this.userService.selectedUserChanged.subscribe((user) => {
       this.selectedUser = user;
       // Update user details shown on the dashboard
       if (user) {

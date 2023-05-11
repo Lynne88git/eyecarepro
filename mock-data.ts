@@ -35,12 +35,6 @@ export const USERS: IUser[] = [
             toAccount: 2
           }
         ]
-      },
-      {
-        id: 2,
-        user: 'John',
-        balance: 500,
-        transactions: []
       }
     ]
   },
@@ -70,12 +64,6 @@ export const USERS: IUser[] = [
             toAccount: 2
           }
         ]
-      },
-      {
-        id: 2,
-        user: 'Mary',
-        balance: 1500,
-        transactions: []
       }
     ]
   },
@@ -103,21 +91,6 @@ export const USERS: IUser[] = [
             amount: 500,
             fromAccount: 1,
             toAccount: undefined
-          }
-        ]
-      },
-      {
-        id: 2,
-        user: 'Bob',
-        balance: 2000,
-        transactions: [
-          {
-            id: 1,
-            type: 'transfer',
-            date: new Date(2022, 5, 30),
-            amount: 1000,
-            fromAccount: 2,
-            toAccount: 1
           }
         ]
       }
