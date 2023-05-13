@@ -14,6 +14,8 @@ import { WalletComponent } from './components/wallet/wallet.component';
 
 import { MockDataService } from './services/mock-data.service';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
+import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,12 +28,14 @@ import { TransactionListComponent } from './components/transaction-list/transact
     NotFoundComponent,
     WalletComponent,
     TransactionListComponent,
+    TransactionFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(MockDataService),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { IUser, IAccount } from 'src/app/models/models';
+import { TransactionFormComponent } from '../transaction-form/transaction-form.component';
+
 
 @Component({
   selector: 'app-dashboard',
