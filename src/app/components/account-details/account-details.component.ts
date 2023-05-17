@@ -8,13 +8,13 @@ import { IAccount } from 'src/app/models/models';
   styleUrls: ['./account-details.component.scss']
 })
 export class AccountDetailsComponent {
-  @Input() selectedAccount: IAccount | undefined;
+  @Input() selectedAccount: IAccount | null = null;
 
   constructor() {
   }
 
   ngOnInit(): void {
-  
+    console.log('Selected Account:', this.selectedAccount);
   }
 }
 

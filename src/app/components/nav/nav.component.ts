@@ -21,18 +21,21 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users: IUser[]) => {
       this.users = users;
-      this.selectedUser = this.userService.selectedUser;
+      this.selectedUser = this.userService.getSelectedUser();
     });
   }
 
   selectUser(user: IUser): void {
-    this.userService.selectedUser = user;
-    this.selectedUser = user;
+    this.userService.setSelectedUser(user);
+    //this.selectedUser = user;
   }
 
   toggleVisible(event: any) {
     this.isVisible = !this.isVisible;
     const userName = String(event.target.innerText);
-    this.selectedUser = this.users.find(user => user.name === userName) || null;
+    this.userService.getUsers().subscribe((users: IUser[]) => {
+      this.users = users;
+      this.selectedUser = this.users.find(user => user.name === userName) || null;
+    });
   }
 }

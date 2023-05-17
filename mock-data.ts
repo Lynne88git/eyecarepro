@@ -12,7 +12,7 @@ export const USERS: IUser[] = [
         transactions: [
           {
             id: 1,
-            type: 'deposit',
+            type: 'Deposit',
             date: new Date(2022, 3, 1),
             amount: 500,
             fromAccount: undefined,
@@ -20,7 +20,7 @@ export const USERS: IUser[] = [
           },
           {
             id: 2,
-            type: 'withdraw',
+            type: 'Withdrawal',
             date: new Date(2022, 4, 15),
             amount: 200,
             fromAccount: 1,
@@ -28,7 +28,7 @@ export const USERS: IUser[] = [
           },
           {
             id: 3,
-            type: 'transfer',
+            type: 'Transfer',
             date: new Date(2022, 5, 30),
             amount: 300,
             fromAccount: 1,
@@ -49,7 +49,7 @@ export const USERS: IUser[] = [
         transactions: [
           {
             id: 1,
-            type: 'deposit',
+            type: 'Deposit',
             date: new Date(2022, 3, 1),
             amount: 1000,
             fromAccount: undefined,
@@ -57,7 +57,7 @@ export const USERS: IUser[] = [
           },
           {
             id: 2,
-            type: 'transfer',
+            type: 'Transfer',
             date: new Date(2022, 4, 15),
             amount: 500,
             fromAccount: 1,
@@ -78,18 +78,18 @@ export const USERS: IUser[] = [
         transactions: [
           {
             id: 1,
-            type: 'deposit',
+            type: 'Deposit',
             date: new Date(2022, 3, 1),
             amount: 1500,
-            fromAccount: undefined,
+            fromAccount: 3,
             toAccount: 1
           },
           {
             id: 2,
-            type: 'withdraw',
+            type: 'Withdrawal',
             date: new Date(2022, 4, 15),
             amount: 500,
-            fromAccount: 1,
+            fromAccount: 3,
             toAccount: undefined
           }
         ]

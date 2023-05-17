@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.selectedUserChanged.subscribe((user) => {
+    this.userService.getSelectedUserObservable().subscribe((user) => {
       this.selectedUser = user;
       // Update user details shown on the dashboard
       if (user) {
@@ -24,7 +24,14 @@ export class DashboardComponent implements OnInit {
       }
     });
 
-    // Set the default user
-    this.userService.selectedUser = this.userService.users[0];
+  // Set the default user
+  this.userService.getUsers().subscribe((users) => {
+    if (users.length > 0) {
+      this.userService.setSelectedUser(users[0]);
+    }
+  });
+}
+    getCurrentBalance(account: IAccount): number {
+    return account.balance || 0;
   }
 }

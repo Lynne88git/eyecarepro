@@ -20,7 +20,7 @@ export class MockDataService implements InMemoryDbService {
             transactions: [
               {
                 id: 1,
-                type: 'deposit',
+                type: 'Deposit',
                 date: new Date(2022, 3, 1),
                 amount: 500,
                 fromAccount: undefined,
@@ -28,7 +28,7 @@ export class MockDataService implements InMemoryDbService {
               },
               {
                 id: 2,
-                type: 'withdraw',
+                type: 'Withdrawal',
                 date: new Date(2022, 4, 15),
                 amount: 200,
                 fromAccount: 1,
@@ -36,7 +36,7 @@ export class MockDataService implements InMemoryDbService {
               },
               {
                 id: 3,
-                type: 'transfer',
+                type: 'Transfer',
                 date: new Date(2022, 5, 30),
                 amount: 300,
                 fromAccount: 1,
@@ -57,7 +57,7 @@ export class MockDataService implements InMemoryDbService {
             transactions: [
               {
                 id: 1,
-                type: 'deposit',
+                type: 'Deposit',
                 date: new Date(2022, 3, 1),
                 amount: 1000,
                 fromAccount: undefined,
@@ -65,7 +65,7 @@ export class MockDataService implements InMemoryDbService {
               },
               {
                 id: 2,
-                type: 'transfer',
+                type: 'Transfer',
                 date: new Date(2022, 4, 15),
                 amount: 500,
                 fromAccount: 1,
@@ -86,7 +86,7 @@ export class MockDataService implements InMemoryDbService {
             transactions: [
               {
                 id: 1,
-                type: 'deposit',
+                type: 'Deposit',
                 date: new Date(2022, 3, 1),
                 amount: 1500,
                 fromAccount: undefined,
@@ -94,7 +94,7 @@ export class MockDataService implements InMemoryDbService {
               },
               {
                 id: 2,
-                type: 'withdraw',
+                type: 'Withdrawal',
                 date: new Date(2022, 4, 15),
                 amount: 500,
                 fromAccount: 1,

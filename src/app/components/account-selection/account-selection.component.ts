@@ -15,7 +15,7 @@ export class AccountSelectionComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.selectedUserChanged.subscribe(user => {
+    this.userService.getSelectedUserObservable().subscribe((user) => {
       this.selectedUser = user;
     });
   }
