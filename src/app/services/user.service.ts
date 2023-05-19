@@ -30,6 +30,16 @@ export class UserService {
     return this.selectedUser.asObservable();
   }
 
+  getAllAccounts(): IAccount[] {
+    // Concatenate all accounts from all users
+    return this.users.reduce((accounts: IAccount[], user: IUser) => {
+      if (user.accounts) {
+        accounts.push(...user.accounts);
+      }
+      return accounts;
+    }, []);
+  }
+
   updateUserAccounts(accounts: IAccount[]): void {
     console.log('Updating user accounts:', accounts);
     const selectedUser = this.getSelectedUser();
@@ -41,10 +51,6 @@ export class UserService {
       this.selectedUser.next({ ...selectedUser });
     }
   }
-
-  // updateBalance(account: IAccount, transactionAmount: number, transactionType: string) {
-  //   account.balance += transactionAmount;
-  // }
   
   updateBalance(account: IAccount, transactionAmount: number, transactionType: string): void {
     console.log('Transaction type from userService:', transactionType);

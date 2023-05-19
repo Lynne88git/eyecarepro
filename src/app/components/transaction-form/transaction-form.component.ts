@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { ITransaction, IUser, IAccount } from 'src/app/models/models';
+import { USERS } from 'mock-data';
 import { UserService } from 'src/app/services/user.service';
 import { AccountDetailsComponent } from '../account-details/account-details.component';
 
@@ -18,6 +19,9 @@ export class TransactionFormComponent implements OnInit {
   lastTransactionId: number = 0;
   selectedUser: IUser | null = null;
   selectedAccount: IAccount | null = null;
+  existingUsers: IUser[] = USERS;
+  ownAccountOnly: boolean = false;
+
 
   constructor(private transactionService: TransactionService, private userService: UserService) {}
 
@@ -86,12 +90,31 @@ export class TransactionFormComponent implements OnInit {
       toAccount: this.transactionToAccount,
     };
     console.log('Transaction type in createTransaction:', this.transactionType);
-  
+
+    if (this.transactionType === 'Deposit') {
+      this.ownAccountOnly = true;
+    
+      // Retrieve the selected user's own account
+    const ownAccount = selectedUser.accounts.find((account) => account.user === selectedUser.name);
+    if (ownAccount) {
+      this.transactionToAccount = ownAccount.id;
+    } else {
+      console.log('Selected user does not have an own account');
+      return;
+    }
+  } else {
+    this.ownAccountOnly = false;
+  }
+
+  // Check if the transaction type is "Deposit"
+if (this.transactionType === 'Deposit') {
+  this.ownAccountOnly = true;
+} else {
+  this.ownAccountOnly = false;
+}
+    
     // Update the balance using UserService's updateBalance function
     this.userService.updateBalance(fromAccount, this.transactionAmount, this.transactionType);
-
-          //  // Update the balance using UserService's updateBalance function
-          //  this.userService.updateBalance(fromAccount, this.transactionAmount);
   
     // Update the selected user's accounts in the UserService
     this.userService.updateUserAccounts([...selectedUser.accounts]);
@@ -107,7 +130,17 @@ export class TransactionFormComponent implements OnInit {
     this.transactionToAccount = undefined;
   }
   
-  
+  getRecipientAccountOptions(): IAccount[] {
+    if (this.ownAccountOnly) {
+      // Return only the user's own account
+      return [this.selectedUser?.accounts.find((account) => account.id === this.transactionToAccount)!].filter(Boolean);
+    } else {
+      // Return all available recipient accounts
+      return this.userService.getAllAccounts()?.filter(
+        (account: IAccount) => account.id !== this.transactionFromAccountId
+      ) ?? [];
+    }
+  }
   
   updateSelectedAccount(): void {
     if (!this.selectedUser || !this.transactionFromAccountId) {
